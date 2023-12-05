@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+  </head>
+  <script
+    src="https://kit.fontawesome.com/7796ec04ee.js"
+    crossorigin="anonymous"
+  ></script>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+    crossorigin="anonymous"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fjalla+One&family=Nanum+Gothic&family=Roboto+Mono&family=Space+Mono&family=Vina+Sans&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/src/style.css" />
+
+<!--Body-->
+<body>
+    <div class="container" style="display: flex; align-items: flex-start">
+      <div class="card">
+        <div class="card-body entire-card px-auto">
+          <div class="row">
+
+<!--Search Bar-->
+            <div class="col">
+              <form class="input-group mb-3 rounded-form " id="searchForm">
+                <button type="submit" class="input-group-text rounded-icon" id="searchButton">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <input
+                  type="text"
+                  class="form-control-sm rounded-input"
+                  id="floatingInputGroup1"
+                  placeholder="City, State"
+                />
+              </form>
+            </div>
+
+<!--Selected City On Top Right Corner-->
+            <div class="col">
+              <div class="cityForecast">
+                <p class="move-right">
+                  Weather Forecast
+                  <span>
+                    <p class="selectedCity" id="selectedCity"></p>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+<!--Main Weather Details-->
+          <div class="row">
+            <div class="col">
+              <div class="container">
+                <div class="row">
+                  <div class="col-1">
+                    <i class="fa-regular fa-sun day-logo"></i>
+                  </div>
+                  <div class="col-5 day-weather">
+                    <div class="col day-weather-degree">
+                      <div id='dailyTemperature'>Temperature</div>
+                      <hr />
+                      <div class="col day-weather-type" id='day-conditon'>Day | Condition</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+<!--Other Weather Details-->
+              <div class="col">
+                <div class="col weather-details-top weather-details">
+                  <p>Precipitation: 0%</p>
+                </div>
+                <div class="col weather-details" id="humidity">
+                  <p>Humidity:</p>
+                </div>
+                <div class="col weather-details" id="wind">
+                  <p>Wind:</p>
+                </div>
+                <div class="row daily-tips">
+              <div class="col">
+                <div class="card tip">
+                  <div class="card-body">
+                    <p>I hope you have some sunblock!</p>
+                  </div>
+                </div>
+              </div>
+
+<!--Daily Tips-->
+              <div class="col">
+                <div class="card tip">
+                  <div class="card-body">
+                    <p>Don't catch a heat stroke!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+              </div>
+            </div>
+
+<!--Detail Options For The Week-->
+            <div class="col">
+              <div class="weather-buttons">
+                <button class="weather-btn">
+                weather
+              </button>
+              <button class="humidity-btn">
+                humidity
+              </button>
+              <button class="wind-btn">
+                wind
+              </button>
+              </div>
+              
+<!--Weekly Forecast-->
+              <div class="card listed-forecast" style="width: 18rem">
+                <ul class="list-group list-group-flush ">
+                  <li class="list-group-item">
+                    <button class="forecast">
+                      <i class="fa-regular fa-sun"></i>
+                      <strong> 95°<span class="grey">60°</span> </strong>
+                      Friday | Sunny
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button class="forecast">
+                      <i class="fa-regular fa-sun"></i>
+                      <strong> 97°<span class="grey">59°</span> </strong>
+                      Saturday | Sunny
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button class="forecast">
+                      <i class="fa-solid fa-cloud-sun"></i>
+                      <strong> 98°<span class="grey">61°</span> </strong>
+                      Sunday | Mostly Sunny
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button class="forecast">
+                      <i class="fa-solid fa-cloud-sun"></i>
+                      <strong> 98°<span class="grey">59°</span> </strong>
+                      Monday | Partly Cloudly
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <p>
+                      <i class="fa-solid fa-cloud-sun"></i>
+                      <strong> 92°<span class="grey">59°</span> </strong>
+                      Tuesday | Partly Cloudy
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <p class='clock'></p>  
+      </div>     
+    </div>
+    <script src="/src/javascript.js"></script>
+  </body>
+</html>

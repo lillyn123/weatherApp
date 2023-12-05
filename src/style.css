@@ -1,0 +1,166 @@
+body {
+    font-family: "Space Mono", monospace;
+  }
+  
+  .move-right {
+    text-align: end;
+    font-size: 12px;
+    margin-bottom: 0;
+    flex: 1;
+  }
+  
+  .selectedCity {
+    text-align: end;
+    font-weight: bold;
+  }
+  
+  .form-control-sm {
+    border-color: lightslategray;
+    flex: 1;
+  }
+  
+  .rounded-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .rounded-input {
+    flex-grow: 1;
+    border: 1px solid lightgray;
+    border-radius: 0 20px 20px 0;
+    padding-left: 0;
+    box-sizing: border-box;
+    height: 30px;
+  }
+  
+  .rounded-icon {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border: 1px solid lightgray;
+    border-radius: 20px 0 0 20px;
+    background-color: #f8f9fa;
+    margin-right: -1px;
+    height: 31px;
+  }
+  
+  .rounded-icon :hover {
+    border: 1px solid grey;
+    background-color: grey;
+    color: white;
+  }
+  
+  .list-group {
+    position: relative;
+    right: 0;
+    background-color: transparent;
+  }
+  
+  .list-group-item {
+    background-color: transparent;
+  }
+  
+  .day-logo {
+    font-size: 50px;
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+  
+  .day-weather {
+    position: absolute;
+    max-width: fit-content;
+    padding-left: 85px;
+  }
+  
+  hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .day-weather-degree {
+    padding-bottom: 0;
+  }
+  
+  .day-weather-type {
+    max-width: fit-content;
+  }
+  
+  .weather-details-top {
+    padding-top: 25px;
+  }
+  
+  .weather-details p {
+    margin-bottom: 1px;
+    padding-left: 85px;
+  }
+  
+  .daily-tips {
+    padding-top: 30px;
+  }
+  
+  .daily-tips p {
+    margin-top: 27px;
+    margin-bottom: 27px;
+  }
+  
+  .tip {
+    border: none;
+    background: linear-gradient(
+      0deg,
+      rgba(155, 147, 1, 1),
+      rgba(255, 245, 64, 1)
+    );
+    box-shadow: 0px 8px 8px -4px grey;
+  }
+  
+  .forecast {
+    max-width: fit-content;
+    border-style: none;
+    background-color: transparent;
+    text-align: left;
+  }
+  
+  .list-group :hover .forecast {
+    border: 2px solid black;
+    padding: 10px;
+  }
+  
+  .weather-buttons {
+    padding-left: 18px;
+  }
+  
+  .weather-btn {
+    background-color: transparent;
+  }
+  
+  .humidity-btn {
+    background-color: transparent;
+  }
+  
+  .wind-btn {
+    background-color: transparent;
+  }
+  
+  .weather-buttons :hover {
+    font-weight: bolder;
+  }
+  
+  .entire-card {
+    background-image: url(https://cdn.dribbble.com/users/925716/screenshots/3333720/attachments/722376/after_noon.png?resize=800x600&vertical=center);
+  }
+  
+  .listed-forecast {
+    background-color: transparent;
+    border: 2px solid black;
+  }
+  
+  .clock {
+    text-align: start;
+    margin: 0;
+    border: 2px solid black;
+    width: 320px;
+  }
+  
