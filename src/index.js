@@ -1,4 +1,3 @@
-import "./style.css";
 let input = document.querySelector("#floatingInputGroup1");
 let city = input.value;
 
