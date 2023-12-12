@@ -43,9 +43,10 @@ function displayTemperature(response) {
   let dailyCondition = document.querySelector("#day-conditon");
   let condition = response.data.condition.description;
   dailyCondition.textContent = `${day} | ${condition}`;
-  let dailyHumidity = document.querySelector("#humidity");
+  let dailyHumidity = document.querySelector("#humidityValue");
   let humidity = response.data.temperature.humidity;
-  dailyHumidity.textContent = `Humidity: ${humidity}`;
-  let dailyWind = document.querySelector("#wind");
+  dailyHumidity.textContent = `${humidity}`;
+  let dailyWind = document.querySelector("#windValue");
   let wind = response.data.wind.speed;
+  dailyWind.textContent = `${wind}`;
 }
