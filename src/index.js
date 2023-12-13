@@ -18,8 +18,8 @@ let minutes = now.getMinutes().toString().padStart(2, "0");
 let clock = document.querySelector(".clock");
 function timeDecorChange() {
   let dailyIcon = document.querySelector('#bigWeatherIcon');
-  let entireCard = document.getElementById('entire-card');
-  if (hour >= 17) {
+  let entireCard = document.getElementsByClassName('entire-card')[0];
+  if (hour >= 18) {
     dailyIcon.classList.remove('fa-sun');
     dailyIcon.classList.add('fa-moon');
     entireCard.style.backgroundImage ="url(https://cdn.dribbble.com/users/925716/screenshots/3333720/attachments/722375/night.png?resize=800x600&vertical=center)";
