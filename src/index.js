@@ -50,6 +50,42 @@ function displayTemperature(response) {
   let dailyCondition = document.querySelector("#day-conditon");
   let condition = response.data.condition.description;
   dailyCondition.textContent = `${day} | ${condition}`;
+  let dailyIcon = document.querySelector('#bigWeatherIcon');
+  if (condition === 'few clouds' || condition === 'scattered clouds' || condition === 'broken clouds') {
+    dailyIcon.classList.remove('fa-regular');
+    dailyIcon.classList.add('fa-solid');
+    dailyIcon.classList.remove('fa-sun');
+    dailyIcon.classList.remove('fa-moon');
+    dailyIcon.classList.add('fa-cloud');
+  }
+  if (condition === 'rain' || condition === 'shower rain') {
+    dailyIcon.classList.remove('fa-regular');
+    dailyIcon.classList.add('fa-solid');
+    dailyIcon.classList.remove('fa-sun');
+    dailyIcon.classList.remove('fa-moon');
+    dailyIcon.classList.add('fa-cloud-rain');
+  }
+  if (condition === 'thunderstorm') {
+    dailyIcon.classList.remove('fa-regular');
+    dailyIcon.classList.add('fa-solid');
+    dailyIcon.classList.remove('fa-sun');
+    dailyIcon.classList.remove('fa-moon');
+    dailyIcon.classList.add('fa-cloud-bolt');
+  }
+  if (condition === 'snow') {
+    dailyIcon.classList.remove('fa-regular');
+    dailyIcon.classList.add('fa-solid');
+    dailyIcon.classList.remove('fa-sun');
+    dailyIcon.classList.remove('fa-moon');
+    dailyIcon.classList.add('fa-snowflake');
+  }
+  if (condition === 'mist') {
+    dailyIcon.classList.remove('fa-regular');
+    dailyIcon.classList.add('fa-solid');
+    dailyIcon.classList.remove('fa-sun');
+    dailyIcon.classList.remove('fa-moon');
+    dailyIcon.classList.add('fa-wind');
+  }
   let dailyHumidity = document.querySelector("#humidityValue");
   let humidity = response.data.temperature.humidity;
   dailyHumidity.textContent = `${humidity}`;
