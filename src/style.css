@@ -61,6 +61,7 @@ body {
   
   .list-group-item {
     background-color: transparent;
+    border-color: black;
   }
   
   .day-logo {

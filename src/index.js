@@ -51,40 +51,25 @@ function displayTemperature(response) {
   let condition = response.data.condition.description;
   dailyCondition.textContent = `${day} | ${condition}`;
   let dailyIcon = document.querySelector('#bigWeatherIcon');
-  if (condition === 'few clouds' || condition === 'scattered clouds' || condition === 'broken clouds') {
-    dailyIcon.classList.remove('fa-regular');
-    dailyIcon.classList.add('fa-solid');
-    dailyIcon.classList.remove('fa-sun');
-    dailyIcon.classList.remove('fa-moon');
-    dailyIcon.classList.add('fa-cloud');
+  if (condition === 'few clouds' || condition === 'scattered clouds' || condition === 'broken clouds' || condition === 'overcast clouds') {
+    dailyIcon.classList.remove('fa-regular', 'fa-sun', 'fa-moon');
+    dailyIcon.classList.add('fa-solid', 'fa-cloud');
   }
   if (condition === 'rain' || condition === 'shower rain') {
-    dailyIcon.classList.remove('fa-regular');
-    dailyIcon.classList.add('fa-solid');
-    dailyIcon.classList.remove('fa-sun');
-    dailyIcon.classList.remove('fa-moon');
-    dailyIcon.classList.add('fa-cloud-rain');
+    dailyIcon.classList.remove('fa-regular', 'fa-sun', 'fa-moon');
+    dailyIcon.classList.add('fa-solid', 'fa-cloud-rain');
   }
   if (condition === 'thunderstorm') {
-    dailyIcon.classList.remove('fa-regular');
-    dailyIcon.classList.add('fa-solid');
-    dailyIcon.classList.remove('fa-sun');
-    dailyIcon.classList.remove('fa-moon');
-    dailyIcon.classList.add('fa-cloud-bolt');
+    dailyIcon.classList.remove('fa-regular', 'fa-sun', 'fa-moon');
+    dailyIcon.classList.add('fa-solid', 'fa-cloud-bolt');
   }
   if (condition === 'snow') {
-    dailyIcon.classList.remove('fa-regular');
-    dailyIcon.classList.add('fa-solid');
-    dailyIcon.classList.remove('fa-sun');
-    dailyIcon.classList.remove('fa-moon');
-    dailyIcon.classList.add('fa-snowflake');
+    dailyIcon.classList.remove('fa-regular', 'fa-sun', 'fa-moon');
+    dailyIcon.classList.add('fa-solid', 'fa-snowflake');
   }
   if (condition === 'mist') {
-    dailyIcon.classList.remove('fa-regular');
-    dailyIcon.classList.add('fa-solid');
-    dailyIcon.classList.remove('fa-sun');
-    dailyIcon.classList.remove('fa-moon');
-    dailyIcon.classList.add('fa-wind');
+    dailyIcon.classList.remove('fa-regular', 'fa-sun', 'fa-moon');
+    dailyIcon.classList.add('fa-solid', 'fa-wind');
   }
   let dailyHumidity = document.querySelector("#humidityValue");
   let humidity = response.data.temperature.humidity;
