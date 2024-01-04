@@ -47,6 +47,10 @@ function displayTemperature(response) {
   dailyTemperature.textContent = `${Math.round(
     response.data.temperature.current
   )}℃`;
+  if (temperature <= 14) {
+    let firstTip = document.querySelector('#firstTip');
+    firstTip.textContent = 'Stay warm!';
+  }
   let dailyCondition = document.querySelector("#day-conditon");
   let condition = response.data.condition.description;
   dailyCondition.textContent = `${day} | ${condition}`;
