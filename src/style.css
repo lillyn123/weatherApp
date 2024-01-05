@@ -101,14 +101,16 @@ body {
   
   .daily-tips {
     padding-top: 30px;
+    overflow: hidden;
   }
   
   .daily-tips p {
-    margin-top: 27px;
+    margin-top: 10px;
     margin-bottom: 27px;
   }
   
   .tip {
+    height: 130px;
     border: none;
     background: linear-gradient(
       0deg,
@@ -116,6 +118,7 @@ body {
       rgba(255, 245, 64, 1)
     );
     box-shadow: 0px 8px 8px -4px grey;
+    overflow: hidden;
   }
   
   .forecast {
