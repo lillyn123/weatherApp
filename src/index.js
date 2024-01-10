@@ -98,4 +98,25 @@ function displayTemperature(response) {
   let wind = response.data.wind.speed;
   dailyWind.textContent = `${wind}`;
 }
+// 5 day forecast
+function forecastDisplay() {
+  let days = ['Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
+  let forecastHtml = '';
+  days.forEach(function (day) {
+    forecastHtml =
+    forecastHtml +
+    `
+    <li class="list-group-item">
+      <button class="forecast">
+        <i class="fa-regular fa-sun"></i>
+        <strong> 95°<span class="grey">60°</span> </strong>
+        ${day} | Sunny
+      </button>
+    </li>
+    `;
+  });
+  let forecastElement = document.querySelector('#forecast');
+  forecastElement.innerHTML = forecastHtml;
+}
+forecastDisplay();
 timeDecorChange();
