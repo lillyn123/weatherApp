@@ -126,13 +126,8 @@ body {
     border-style: none;
     background-color: transparent;
     text-align: left;
-  }
-  
-  .list-group :hover .forecast {
-    border: 2px solid black;
-    padding: 10px;
-  }
-  
+  }  
+
   .weather-buttons {
     padding-left: 18px;
   }
@@ -157,7 +152,7 @@ body {
     background-image: url(https://cdn.dribbble.com/users/925716/screenshots/3333720/attachments/722376/after_noon.png?resize=800x600&vertical=center);
   }
   
-  .listed-forecast {
+  .listed-forecastWeek {
     background-color: transparent;
     border: 2px solid black;
   }
@@ -167,5 +162,12 @@ body {
     margin: 0;
     border: 2px solid black;
     width: 320px;
+  }
+
+  .credits {
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 8px;
+    font-size: 13px;
   }
   
