@@ -47,7 +47,7 @@ function displayTemperature(response) {
   dailyTemperature.textContent = `${Math.round(
     response.data.temperature.current
   )}℃`;
-  // Temperature tip
+  // Temperature tip & Icon
   let firstTip = document.querySelector('#firstTip');
   if (temperature <= 14) {
     firstTip.textContent = 'Wear something warm!';
@@ -98,22 +98,36 @@ function displayTemperature(response) {
   let wind = response.data.wind.speed;
   dailyWind.textContent = `${wind}`;
 }
+
 // 5 day forecast
-function forecastDisplay() {
+function getForecast() {
+  let apiKey = "4da3041f575cfo3990b647f9504e3t4f";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(forecastDisplay);
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  return days[date.getDay()];
+}
+function forecastDisplay(response) {
   let days = ['Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
   let forecastHtml = '';
-  days.forEach(function (day) {
-    forecastHtml =
-    forecastHtml +
-    `
-    <li class="list-group-item">
-      <button class="forecast">
-        <i class="fa-regular fa-sun"></i>
-        <strong> 95°<span class="grey">60°</span> </strong>
-        ${day} | Sunny
-      </button>
-    </li>
-    `;
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+      forecastHtml +
+      `
+      <li class="list-group-item">
+        <button class="forecast">
+          <i class="fa-regular fa-sun"></i>
+          <strong> ${Math.round(day.temperature.maximum)}°<span class="grey">${Math.round(day.temperature.minimum)}°</span> </strong>
+          ${formatDay(day.time)} | ${day.condition.description}
+        </button>
+      </li>
+      `;
+    }
   });
   let forecastElement = document.querySelector('#forecast');
   forecastElement.innerHTML = forecastHtml;
