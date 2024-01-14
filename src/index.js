@@ -135,5 +135,7 @@ function forecastDisplay(response) {
   forecastElement.innerHTML = forecastHtml;
 }
 let searchFormElement = document.querySelector('#form');
-searchFormElement.addEventListener('submit', searchSubmit);
+searchFormElement.addEventListener('click', function searchSubmit(){
+  forecastDisplay();
+});
 timeDecorChange();
