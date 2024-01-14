@@ -32,7 +32,7 @@ timeDecorChange();
 let form = document.querySelector("form");
 let searchButton = document.querySelector("#searchButton");
 let selectedCity = document.querySelector("#selectedCity");
-form.addEventListener("submit", function (event) {
+function searchSubmit(event) {
   event.preventDefault();
   let input = document.querySelector("#floatingInputGroup1");
   let city = input.value;
@@ -40,7 +40,10 @@ form.addEventListener("submit", function (event) {
   let apiKey = "4da3041f575cfo3990b647f9504e3t4f";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
   axios.get(apiUrl).then(displayTemperature);
-});
+}
+form.addEventListener("click", searchSubmit);
+
+// Daily Temperature
 function displayTemperature(response) {
   let dailyTemperature = document.querySelector("#dailyTemperature");
   let temperature = response.data.temperature.current;
@@ -100,16 +103,15 @@ function displayTemperature(response) {
 }
 
 // 5 day forecast
-function getForecast() {
-  let apiKey = "4da3041f575cfo3990b647f9504e3t4f";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
-  axios(apiUrl).then(forecastDisplay);
-}
-
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   return days[date.getDay()];
+}
+function getForecast(city) {
+  let apiKey = "4da3041f575cfo3990b647f9504e3t4f";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(forecastDisplay);
 }
 function forecastDisplay(response) {
   let days = ['Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
@@ -132,5 +134,6 @@ function forecastDisplay(response) {
   let forecastElement = document.querySelector('#forecast');
   forecastElement.innerHTML = forecastHtml;
 }
-forecastDisplay();
+let searchFormElement = document.querySelector('#form');
+searchFormElement.addEventListener('submit', searchSubmit);
 timeDecorChange();

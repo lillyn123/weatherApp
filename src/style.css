@@ -88,6 +88,9 @@ body {
   
   .day-weather-type {
     max-width: fit-content;
+    display: block;
+    display: inline;
+    white-space: nowrap;
   }
   
   .weather-details-top {
@@ -97,6 +100,7 @@ body {
   .weather-details p {
     margin-bottom: 1px;
     padding-left: 85px;
+    display: block;
   }
   
   .daily-tips {
