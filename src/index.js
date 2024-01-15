@@ -131,11 +131,10 @@ function forecastDisplay(response) {
       `;
     }
   });
-  let forecastElement = document.querySelector('#forecast');
-  forecastElement.innerHTML = forecastHtml;
 }
-let searchFormElement = document.querySelector('#form');
-searchFormElement.addEventListener('click', function searchSubmit(){
-  forecastDisplay();
-});
+let forecastElement = document.querySelector('#forecast');
+forecastElement.innerHTML = forecastHtml;
+
+form.addEventListener('submit', forecastDisplay);
+
 timeDecorChange();
