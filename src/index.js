@@ -46,19 +46,19 @@ form.addEventListener("click", searchSubmit);
 // Daily Temperature
 function displayTemperature(response) {
   let dailyTemperature = document.querySelector("#dailyTemperature");
-  let temperature = response.data.temperature.current;
+  let temp = response.data.temperature.current;
   dailyTemperature.textContent = `${Math.round(
     response.data.temperature.current
   )}℃`;
   // Temperature tip & Icon
   let firstTip = document.querySelector('#firstTip');
-  if (temperature <= 14) {
+  if (temp <= 14) {
     firstTip.textContent = 'Wear something warm!';
   }
-  if (temperature >= 25) {
+  if (temp >= 25) {
     firstTip.textContent = "Stay dehydrated and drink water!";
   }
-  if (temperature > 14 && temperature < 25) {
+  if (temp > 14 && temperature < 25) {
     firstTip.textContent = "It feels nice outside."
   } 
   let secondTip = document.querySelector('#secondTip');
@@ -131,9 +131,9 @@ function forecastDisplay(response) {
       `;
     }
   });
+  let forecastElement = document.querySelector('#forecast');
+  forecastElement.innerhtml = forecastHtml;
 }
-let forecastElement = document.querySelector('#forecast');
-forecastElement.innerHTML = forecastHtml;
 
 form.addEventListener('submit', forecastDisplay);
 
