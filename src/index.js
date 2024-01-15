@@ -45,11 +45,10 @@ form.addEventListener("click", searchSubmit);
 
 // Daily Temperature
 function displayTemperature(response) {
+  console.log(response.data);
   let dailyTemperature = document.querySelector("#dailyTemperature");
   let temp = response.data.temperature.current;
-  dailyTemperature.textContent = `${Math.round(
-    response.data.temperature.current
-  )}℃`;
+  dailyTemperature.textContent = `${Math.round(temp)}℃`;
   // Temperature tip & Icon
   let firstTip = document.querySelector('#firstTip');
   if (temp <= 14) {
@@ -100,6 +99,7 @@ function displayTemperature(response) {
   let dailyWind = document.querySelector("#windValue");
   let wind = response.data.wind.speed;
   dailyWind.textContent = `${wind}`;
+  getForecast(response.data.coordinates);
 }
 
 // 5 day forecast
@@ -108,13 +108,14 @@ function formatDay(timestamp) {
   let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   return days[date.getDay()];
 }
-function getForecast(city) {
+function getForecast(coordinates) {
+  console.log(coordinates);
   let apiKey = "4da3041f575cfo3990b647f9504e3t4f";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}`;
+  console.log(apiUrl);
   axios(apiUrl).then(forecastDisplay);
 }
 function forecastDisplay(response) {
-  let days = ['Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
   let forecastHtml = '';
   response.data.daily.forEach(function (day, index) {
     if (index < 5) {
@@ -134,7 +135,5 @@ function forecastDisplay(response) {
   let forecastElement = document.querySelector('#forecast');
   forecastElement.innerhtml = forecastHtml;
 }
-
-form.addEventListener('submit', forecastDisplay);
 
 timeDecorChange();
