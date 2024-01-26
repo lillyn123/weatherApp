@@ -57,7 +57,7 @@ function displayTemperature(response) {
   if (temp >= 25) {
     firstTip.textContent = "Stay dehydrated and drink water!";
   }
-  if (temp > 14 && temperature < 25) {
+  if (temp > 14 && temp < 25) {
     firstTip.textContent = "It feels nice outside."
   } 
   let secondTip = document.querySelector('#secondTip');
@@ -133,7 +133,7 @@ function forecastDisplay(response) {
     }
   });
   let forecastElement = document.querySelector('#forecast');
-  forecastElement.innerhtml = forecastHtml;
+  forecastElement.innerHTML = forecastHtml;
 }
 
 timeDecorChange();
