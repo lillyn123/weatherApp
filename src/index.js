@@ -118,19 +118,20 @@ function getForecast(coordinates) {
 function forecastDisplay(response) {
   let forecastHtml = '';
   response.data.daily.forEach(function (day, index) {
-    if (index < 5) {
+    
+    if (index < 5) {    
       forecastHtml =
       forecastHtml +
       `
       <li class="list-group-item">
         <button class="forecast">
-          <i class="fa-regular fa-sun"></i>
+          <img src="${day.condition.icon_url}" class="weather-forecast-icon" />
           <strong> ${Math.round(day.temperature.maximum)}°<span class="grey">${Math.round(day.temperature.minimum)}°</span> </strong>
           ${formatDay(day.time)} | ${day.condition.description}
         </button>
       </li>
       `;
-    }
+    } 
   });
   let forecastElement = document.querySelector('#forecast');
   forecastElement.innerHTML = forecastHtml;
