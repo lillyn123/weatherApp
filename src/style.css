@@ -2,7 +2,7 @@ body {
     font-family: "Space Mono", monospace;
   }
   
-  .move-right {
+  .moveCity {
     text-align: end;
     font-size: 12px;
     margin-bottom: 0;
@@ -133,21 +133,13 @@ body {
   }  
 
   .weather-buttons {
-    padding-left: 18px;
+    width: 280px;
   }
   
   .weather-btn {
     background-color: transparent;
   }
-  
-  .humidity-btn {
-    background-color: transparent;
-  }
-  
-  .wind-btn {
-    background-color: transparent;
-  }
-  
+
   .weather-buttons :hover {
     font-weight: bolder;
   }
@@ -176,5 +168,5 @@ body {
   }
 
   .weather-forecast-icon {
-    width: 38px;
+    width: 35px;
   }

@@ -137,4 +137,5 @@ function forecastDisplay(response) {
   forecastElement.innerHTML = forecastHtml;
 }
 
+
 timeDecorChange();
